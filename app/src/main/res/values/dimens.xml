@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacing_large_48">48dp</dimen>
+    <dimen name="spacing_medium_16">16dp</dimen>
+    <dimen name="spacing_small_8">8dp</dimen>
+    <dimen name="spacing_tiny_4">4dp</dimen>
+
+    <!-- item CardView -->
+    <dimen name="item_card_corner_radius_8">8dp</dimen>
+    <dimen name="item_card_elevation_10">10dp</dimen>
+    <dimen name="item_favourites_label_width_24">24dp</dimen>
+    <dimen name="item_favourites_label_height_22.5">22.5dp</dimen>
+    <dimen name="item_poster_corner_radius_10">10dp</dimen>
+
+
+
+</resources>

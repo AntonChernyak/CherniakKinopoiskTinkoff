@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CherniakKinopoiskTinkoff</string>
+    <string name="poster_cd">poster</string>
+    <string name="favourites_label_cd">favourites_label</string>
 </resources>
