@@ -14,8 +14,8 @@ class FilmListViewModel(
     private val listInteractor: FilmListInteractor
 ) : ViewModel() {
 
-    private val mFilmsViewModel: MutableLiveData<List<FilmItemDto>> = MutableLiveData()
-    val filmsViewModel: LiveData<List<FilmItemDto>> = mFilmsViewModel
+    private val mFilmsLiveData: MutableLiveData<List<FilmItemDto>> = MutableLiveData()
+    val filmsLiveData: LiveData<List<FilmItemDto>> = mFilmsLiveData
 
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         throwable.message
@@ -23,7 +23,7 @@ class FilmListViewModel(
 
     fun getTopFilms(type: String = top100type, page: Int = 1) {
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
-            mFilmsViewModel.postValue(listInteractor.getTopFilms(type, page))
+            mFilmsLiveData.postValue(listInteractor.getTopFilms(type, page))
         }
     }
 
