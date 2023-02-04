@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 // FilmTopResponse_films
 @Serializable
-class FilmItemDto(
+data class FilmItemDto(
     @SerialName("filmId")
     val id: Int,
     @SerialName("nameRu")
