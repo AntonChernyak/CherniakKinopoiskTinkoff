@@ -3,13 +3,14 @@ package com.example.domain.models
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+// FilmTopResponse_films
 @Serializable
 class FilmItemDto(
-    @SerialName("kinopoiskId")
+    @SerialName("filmId")
     val id: Int,
     @SerialName("nameRu")
     val title: String?,
-    @SerialName("posterUrlPreview")
+    @SerialName("posterUrl")
     val poster: String,
-    val year: Int?
+    val year: String?
 )
