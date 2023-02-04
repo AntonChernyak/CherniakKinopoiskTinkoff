@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListFragment">
+
+    <TextView
+        android:id="@+id/sectionTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_medium_16"
+        android:layout_marginTop="@dimen/spacing_medium_16"
+        android:paddingTop="@dimen/spacing_medium_16"
+        android:text="@string/hello_blank_fragment"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Избранное" />
+
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_large_48"
+        android:layout_marginEnd="@dimen/spacing_medium_16"
+        android:drawableEnd="@drawable/ic_search"
+        android:hint="@string/search"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        app:layout_constraintBaseline_toBaselineOf="@id/sectionTitleTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/sectionTitleTextView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/filmsRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacing_small_8"
+        android:layout_marginBottom="@dimen/spacing_medium_16"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toTopOf="@id/favouritesButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchEditText"
+        tools:listitem="@layout/item_film" />
+
+    <ProgressBar
+        android:id="@+id/listProgressBar"
+        android:layout_width="@dimen/progress_bar_size_64"
+        android:layout_height="@dimen/progress_bar_size_64"
+        android:indeterminateTint="@color/primary_color"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/filmsRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/filmsRecyclerView" />
+
+    <TextView
+        android:id="@+id/noDataTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:paddingStart="@dimen/spacing_medium_16"
+        android:paddingTop="@dimen/spacing_small_8"
+        android:paddingEnd="@dimen/spacing_medium_16"
+        android:paddingBottom="@dimen/spacing_small_8"
+        android:text="@string/not_found"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/filmsRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/filmsRecyclerView" />
+
+    <LinearLayout
+        android:id="@+id/errorBlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/filmsRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/filmsRecyclerView">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/error_cd"
+            android:src="@drawable/ic_error_img" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium_16"
+            android:gravity="center"
+            android:text="@string/error_message"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:textColor="@color/primary_color" />
+
+        <TextView
+            android:id="@+id/repeatButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_compact_32"
+            android:background="@drawable/button_background"
+            android:padding="@dimen/spacing_medium_16"
+            android:paddingStart="@dimen/spacing_compact_32"
+            android:paddingEnd="@dimen/spacing_compact_32"
+            android:text="@string/repeat"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/topButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_medium_16"
+        android:layout_marginTop="@dimen/spacing_medium_16"
+        android:layout_marginEnd="@dimen/spacing_small_8"
+        android:layout_marginBottom="@dimen/spacing_medium_16"
+        android:background="@drawable/button_background"
+        android:text="@string/top_films"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/favouritesButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/favouritesButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_small_8"
+        android:layout_marginEnd="@dimen/spacing_medium_16"
+        android:background="@drawable/button_background"
+        android:backgroundTint="@color/secondary_color"
+        android:text="@string/favourites"
+        android:textColor="@color/primary_color"
+        app:layout_constraintBottom_toBottomOf="@id/topButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/topButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

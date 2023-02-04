@@ -2,4 +2,13 @@
     <string name="app_name">CherniakKinopoiskTinkoff</string>
     <string name="poster_cd">poster</string>
     <string name="favourites_label_cd">favourites_label</string>
+    <!-- List Fragment -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Поиск…</string>
+    <string name="top_films">Популярные</string>
+    <string name="favourites">Избранное</string>
+    <string name="not_found">Не найдено</string>
+    <string name="error_message">Произошла ошибка при загрузке данных,\n проверьте подключение к сети</string>
+    <string name="error_cd">Error</string>
+    <string name="repeat">Повторить</string>
 </resources>

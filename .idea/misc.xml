@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/CherniakKinopoiskTinkoff/app/src/main/res/drawable/button_background.xml" value="0.2185" />
         <entry key="..\:/Android/CherniakKinopoiskTinkoff/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.2185" />
+        <entry key="..\:/Android/CherniakKinopoiskTinkoff/app/src/main/res/drawable/ic_error_img.xml" value="0.2185" />
         <entry key="..\:/Android/CherniakKinopoiskTinkoff/app/src/main/res/drawable/ic_favorites_star.xml" value="0.2185" />
+        <entry key="..\:/Android/CherniakKinopoiskTinkoff/app/src/main/res/drawable/ic_search.xml" value="0.2185" />
         <entry key="..\:/Android/CherniakKinopoiskTinkoff/app/src/main/res/drawable/poster_background.xml" value="0.2185" />
         <entry key="..\:/Android/CherniakKinopoiskTinkoff/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Android/CherniakKinopoiskTinkoff/app/src/main/res/layout/fragment_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Android/CherniakKinopoiskTinkoff/app/src/main/res/layout/item_film.xml" value="0.33" />
       </map>
     </option>
