@@ -11,4 +11,7 @@
     <string name="error_message">Произошла ошибка при загрузке данных,\n проверьте подключение к сети</string>
     <string name="error_cd">Error</string>
     <string name="repeat">Повторить</string>
+    <!-- Details Fragment -->
+    <string name="genres">Жанры:</string>
+    <string name="countries">Страны:</string>
 </resources>

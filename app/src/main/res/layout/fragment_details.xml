@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".DetailsFragment">
+
+        <ImageView
+            android:id="@+id/detailsPosterImageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/details_poster_height"
+            android:contentDescription="@string/poster_cd"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/detailsTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_compact_32"
+            android:layout_marginTop="@dimen/spacing_medium_16"
+            android:layout_marginEnd="@dimen/spacing_compact_32"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            tools:text="Название фильма" />
+
+        <TextView
+            android:id="@+id/detailsDescriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_compact_32"
+            android:layout_marginTop="@dimen/spacing_medium_16"
+            android:layout_marginEnd="@dimen/spacing_compact_32"
+            tools:text="Описание фильма на много много строк. Описание фильма на много много строк." />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_compact_32"
+            android:layout_marginTop="@dimen/spacing_medium_16"
+            android:layout_marginEnd="@dimen/spacing_compact_32"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/DetailsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/genres" />
+
+            <TextView
+                android:id="@+id/genresTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Фантастика, Боевик" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_compact_32"
+            android:layout_marginTop="@dimen/spacing_small_8"
+            android:layout_marginEnd="@dimen/spacing_compact_32"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/DetailsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/countries" />
+
+            <TextView
+                android:id="@+id/countriesTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="США, Южная Корея" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
