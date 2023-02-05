@@ -6,12 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.cherniakkinopoisktinkoff.R
 import com.example.cherniakkinopoisktinkoff.databinding.FragmentListBinding
+import com.example.cherniakkinopoisktinkoff.presentation.extensions.checkNetworkConnectAll
 import com.example.cherniakkinopoisktinkoff.presentation.factory.FilmViewModelFactory
 import com.example.cherniakkinopoisktinkoff.presentation.list.adapter.FilmsAdapter
 import com.example.data.network.FilmApiClient
@@ -19,7 +23,9 @@ import com.example.data.repository.FilmDetailsRemoteRepository
 import com.example.data.repository.FilmListRemoteRepository
 import com.example.domain.interactors.FilmDetailsInteractor
 import com.example.domain.interactors.FilmListInteractor
+import com.example.domain.interactors.UIStateEnum
 import com.example.domain.models.FilmItemDto
+import kotlinx.coroutines.launch
 
 
 class FilmListFragment : Fragment() {
@@ -56,6 +62,13 @@ class FilmListFragment : Fragment() {
             items = films
             filmsAdapter.data = items
         }
+
+        setNetworkListener()
+        setUiStateLiveDataObserver()
+
+        binding.repeatButton.setOnClickListener {
+            viewModel.getTopFilms(page = pageCount)
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -91,6 +104,43 @@ class FilmListFragment : Fragment() {
                 }
             }
         })
+    }
+
+    private fun setUiStateLiveDataObserver() {
+        viewModel.getUiState().observe(viewLifecycleOwner) { uiState ->
+            updateUiState(uiState)
+        }
+    }
+
+    private fun updateUiState(uiStateEnum: UIStateEnum) {
+        lifecycleScope.launch {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                when (uiStateEnum) {
+                    UIStateEnum.NETWORK_ERROR -> {
+                        binding.errorBlock.visibility = View.VISIBLE
+                    }
+                    UIStateEnum.NETWORK_AVAILABLE -> {
+                        binding.errorBlock.visibility = View.GONE
+                    }
+                    UIStateEnum.START_LOADING -> {
+                        binding.listProgressBar.visibility = View.VISIBLE
+                    }
+                    UIStateEnum.END_LOADING -> {
+                        binding.listProgressBar.visibility = View.GONE
+                    }
+                    UIStateEnum.DEFAULT_STATE -> {
+                        binding.errorBlock.visibility = View.GONE
+                        binding.listProgressBar.visibility = View.GONE
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setNetworkListener() {
+        if (this@FilmListFragment.checkNetworkConnectAll()) {
+            updateUiState(UIStateEnum.NETWORK_AVAILABLE)
+        } else updateUiState(UIStateEnum.NETWORK_ERROR)
     }
 
     companion object {

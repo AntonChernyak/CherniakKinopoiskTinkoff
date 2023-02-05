@@ -1,11 +1,9 @@
 package com.example.cherniakkinopoisktinkoff.presentation.list
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.domain.interactors.FilmListInteractor
+import com.example.domain.interactors.UIStateEnum
 import com.example.domain.models.FilmItemDto
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -31,6 +29,10 @@ class FilmListViewModel(
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
             mFilmsLiveData.postValue(listInteractor.getTopFilms(type, page))
         }
+    }
+
+    fun getUiState(): LiveData<UIStateEnum> {
+        return listInteractor.uiStateFlow.asLiveData()
     }
 
     companion object {
