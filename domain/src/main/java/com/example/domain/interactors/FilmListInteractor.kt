@@ -8,6 +8,7 @@ class FilmListInteractor(
 ) {
 
     suspend fun getTopFilms(type: String, page: Int): List<FilmItemDto> {
+       // val topsList  = mutableListOf<FilmItemDto>()
         return remoteRepository.getTopFilms(type, page)
     }
 }

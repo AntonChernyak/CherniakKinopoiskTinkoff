@@ -18,5 +18,6 @@
     <dimen name="progress_bar_size_64">64dp</dimen>
     <dimen name="button_corner_radius_24">24dp</dimen>
     <dimen name="details_poster_height">500dp</dimen>
+    <dimen name="item_poster_width">100dp</dimen>
 
 </resources>

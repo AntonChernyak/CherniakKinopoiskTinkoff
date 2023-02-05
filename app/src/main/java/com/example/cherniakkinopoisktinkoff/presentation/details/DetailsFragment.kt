@@ -1,7 +1,6 @@
 package com.example.cherniakkinopoisktinkoff.presentation.details
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -41,7 +40,6 @@ class DetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val id = requireArguments().getString(ID_KEY, "0")
-        Log.d("TAGGGGG", "id === $id")
         viewModel.getFilmById(id)
 
         setDataIntoViews()
