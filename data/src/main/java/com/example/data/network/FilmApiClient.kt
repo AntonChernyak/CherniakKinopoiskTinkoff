@@ -10,8 +10,9 @@ import retrofit2.Retrofit
 
 object FilmApiClient {
 
-    private const val BASE_URL = "https://kinopoiskapiunofficial.tech/documentation/api/"
+    private const val BASE_URL = "https://kinopoiskapiunofficial.tech/api/"
     private val contentType = "application/json".toMediaType()
+    private val json by lazy { Json { ignoreUnknownKeys = true } }
 
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor(
@@ -27,7 +28,7 @@ object FilmApiClient {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
-            .addConverterFactory(Json.asConverterFactory(contentType))
+            .addConverterFactory(json.asConverterFactory(contentType))
             .build()
 
         return@lazy retrofit.create(KinopoiskApiInterface::class.java)

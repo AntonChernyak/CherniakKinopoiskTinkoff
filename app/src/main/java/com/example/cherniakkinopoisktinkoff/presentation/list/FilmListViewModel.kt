@@ -1,5 +1,6 @@
 package com.example.cherniakkinopoisktinkoff.presentation.list
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,6 +20,11 @@ class FilmListViewModel(
 
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         throwable.message
+        Log.d("TAGGGGGG", "err = ${throwable.message}" )
+    }
+
+    init {
+        getTopFilms()
     }
 
     fun getTopFilms(type: String = top100type, page: Int = 1) {

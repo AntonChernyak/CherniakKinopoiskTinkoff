@@ -9,7 +9,7 @@ class FilmAuthenticator : Authenticator{
 
     override fun authenticate(route: Route?, response: Response): Request {
 
-        val token = "e30ffed0-76ab-4dd6-b41f-4c9da2b2735b"
+        val token = "575c2ec4-41a6-4956-be9d-17a820dacf30"
 
         return response.request.newBuilder()
             .removeHeader((TOKEN_KEY))
