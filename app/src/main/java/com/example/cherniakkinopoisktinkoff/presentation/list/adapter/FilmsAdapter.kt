@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cherniakkinopoisktinkoff.databinding.ItemFilmBinding
 import com.example.domain.models.FilmItemDto
 
-class FilmsAdapter() : RecyclerView.Adapter<FilmItemViewHolder>() {
+class FilmsAdapter(
+    val itemClick: (position: Int) -> Unit
+) : RecyclerView.Adapter<FilmItemViewHolder>() {
 
     var data: List<FilmItemDto> = emptyList()
         set(newValue) {
@@ -20,7 +22,7 @@ class FilmsAdapter() : RecyclerView.Adapter<FilmItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmItemViewHolder {
         val viewBinding =
             ItemFilmBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return FilmItemViewHolder(viewBinding)
+        return FilmItemViewHolder(viewBinding, itemClick)
     }
 
     override fun onBindViewHolder(holder: FilmItemViewHolder, position: Int) {

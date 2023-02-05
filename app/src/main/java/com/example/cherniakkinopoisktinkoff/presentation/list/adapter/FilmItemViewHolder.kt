@@ -7,8 +7,13 @@ import com.example.domain.models.FilmItemDto
 
 class FilmItemViewHolder(
     private val itemBinding: ItemFilmBinding,
+    val itemClick: (position: Int) -> Unit,
+    // val longClick: (position: Int, item: FilmItemDto)
 ) : RecyclerView.ViewHolder(itemBinding.root) {
 
+    init {
+        itemView.setOnClickListener { itemClick(bindingAdapterPosition) }
+    }
     fun bind(item: FilmItemDto) {
         itemBinding.titleTextView.text = item.title
         itemBinding.yearTextView.text = item.year
